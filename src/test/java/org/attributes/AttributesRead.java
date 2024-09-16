@@ -27,6 +27,7 @@ public class AttributesRead {
         WebElement listaUser = driver.findElement(By.xpath("//ul[@class='list-group']//li["+id+"]"));
         return listaUser;
     }
+
     @FindBy(how = How.XPATH, using = "//a[contains(text(),'Editar')]")
     public WebElement editarButton;
 

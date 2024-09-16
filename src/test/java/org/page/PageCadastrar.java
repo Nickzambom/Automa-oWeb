@@ -1,12 +1,13 @@
 package org.page;
 
+import org.actions.Actions;
 import org.attributes.AttributesSearch;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import static org.junit.Assert.assertEquals;
 
 
-public class PageCadastrar extends AttributesSearch {
+public class PageCadastrar extends AttributesSearch implements Actions {
     public WebDriver driver;
 
     public PageCadastrar(WebDriver driver) {
@@ -18,16 +19,16 @@ public class PageCadastrar extends AttributesSearch {
 
 
     public void inserirDados() {
-        Nome.sendKeys("Nicholas");
-        Sobrenome.sendKeys("Luiz");
-        Idade.sendKeys("30");
-        Telefone.sendKeys("1234567890");
-        Email.sendKeys("nicholas.smith@example.com");
-        Linkedin.sendKeys("https://www.linkedin.com/feed/)");
-        Cadastrar.click();
+        setText(Nome,"Nicholas");
+        setText(Sobrenome,"Luiz");
+        setText(Idade,"30");
+        setText(Telefone,"1234567890");
+        setText(Email,"nicholas.smith@example.com");
+        setText(Linkedin,"https://www.linkedin.com/feed/)");
+        click(Cadastrar);
         String titlePageEsperado = "Registro Sucesso";
         String titlePage = driver.getTitle();
 
-        assertEquals(titlePageEsperado,titlePage);
+        validateEquals(titlePageEsperado,titlePage);
     }
 }

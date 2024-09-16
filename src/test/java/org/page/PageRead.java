@@ -15,7 +15,7 @@ public class PageRead extends AttributesRead implements Actions {
     }
 
     public void validarCadastro(){
-        visualizar.click();
+        click(visualizar);
         String title = driver.getTitle();
         String titleEsperado = "Visualizar Usuários";
         validateObject(topoPage);
