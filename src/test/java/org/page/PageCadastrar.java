@@ -1,10 +1,10 @@
+
 package org.page;
 
 import org.actions.Actions;
 import org.attributes.AttributesSearch;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import static org.junit.Assert.assertEquals;
 
 
 public class PageCadastrar extends AttributesSearch implements Actions {
@@ -32,3 +32,4 @@ public class PageCadastrar extends AttributesSearch implements Actions {
         validateEquals(titlePageEsperado,titlePage);
     }
 }
+
