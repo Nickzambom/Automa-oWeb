@@ -1,11 +1,21 @@
 package org.actions;
 
+import io.appium.java_client.android.AndroidDriver;
+import org.driverManager.DriverManager;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public interface ActionsMobile {
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.sql.Driver;
 
+public interface ActionsMobile {
+    DriverManager driverManager = new DriverManager();
     // Método para validar se o elemento está visível e habilitado com espera explícita
     default boolean validateObject(WebElement element) {
+
         try {
             if(element.isEnabled()){
                 return element.isEnabled();
@@ -18,7 +28,7 @@ public interface ActionsMobile {
     }
 
     // Método para inserir texto em um campo
-    default void setText(WebElement element, String text) {
+    default void setText(WebElement element, String text ) {
         try {
             if (element.isEnabled()) {
                 element.clear(); // Limpa o campo antes de inserir texto

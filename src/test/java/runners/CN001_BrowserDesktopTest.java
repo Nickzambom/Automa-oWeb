@@ -9,7 +9,7 @@ import org.page.PageRead;
 import java.time.Duration;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class CN001 {
+public class CN001_BrowserDesktopTest {
 
     private WebDriver driver;
     private static final String url = "http://localhost:8080/Faculdade/index.html";
