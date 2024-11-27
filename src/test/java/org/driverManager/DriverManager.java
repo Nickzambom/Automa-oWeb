@@ -14,6 +14,8 @@ import java.time.Duration;
 
 public class DriverManager {
     private AndroidDriver mobileDriver;
+    private static ThreadLocal<AndroidDriver> driver = new ThreadLocal<>();
+
 
 
     public AndroidDriver initializeDriver(String deviceName, String udid, String appPackage, String appActivity) {
@@ -30,6 +32,7 @@ public class DriverManager {
             mobileDriver = new AndroidDriver(new URL("http://127.0.0.1:4723/"), capabilities);
             mobileDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
             System.out.println("Driver iniciado com sucesso!");
+            driver.set(mobileDriver);
             return mobileDriver;
 
         } catch (Exception e) {
@@ -77,10 +80,10 @@ public class DriverManager {
     }
 
     public AndroidDriver getMobileDriver() {
-        if (mobileDriver == null) {
+        if (driver.get() == null) {
             throw new RuntimeException("O AndroidDriver não foi inicializado.");
         }
-        return mobileDriver;
+        return driver.get();
     }
 
     public AndroidDriver setMobileDriver(AndroidDriver mobileDriver) {
