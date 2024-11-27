@@ -78,6 +78,14 @@ public interface ActionsMobile {
         }
     }
 
+    default void wait(int seconds) throws InterruptedException {
+        try{
+            getDriver().manage().wait(seconds);
+        }catch (Exception e){
+            throw new RuntimeException("Erro ao esperar"+ e.getMessage());
+        }
+    }
+
     default boolean snapShot() {
         try {
             AndroidDriver driver = getDriver();

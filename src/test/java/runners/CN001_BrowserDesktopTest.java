@@ -3,8 +3,8 @@ package runners;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.page.PageCadastrar;
-import org.page.PageRead;
+import org.pageWeb.PageCadastrar;
+import org.pageWeb.PageRead;
 
 import java.time.Duration;
 

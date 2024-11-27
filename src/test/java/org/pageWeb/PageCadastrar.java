@@ -1,8 +1,8 @@
 
-package org.page;
+package org.pageWeb;
 
 import org.actions.Actions;
-import org.attributes.AttributesSearch;
+import org.attributesWeb.AttributesSearch;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 

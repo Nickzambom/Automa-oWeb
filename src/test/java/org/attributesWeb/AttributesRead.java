@@ -1,4 +1,4 @@
-package org.attributes;
+package org.attributesWeb;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

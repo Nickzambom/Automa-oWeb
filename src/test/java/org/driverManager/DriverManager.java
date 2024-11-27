@@ -2,11 +2,14 @@ package org.driverManager;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -16,10 +19,21 @@ public class DriverManager {
     private AndroidDriver mobileDriver;
     private static ThreadLocal<AndroidDriver> driver = new ThreadLocal<>();
 
-
+    public void intializeTest() throws IOException {
+        String currentDirectory = System.getProperty("user.dir");
+        String resultDirectory = currentDirectory + "/Results/Screenshots";
+        File directory = new File(resultDirectory);
+        if (directory.exists()) {
+            if(!(directory.listFiles() == null)){
+                FileUtils.forceDelete(new File(resultDirectory));
+            }
+            directory.delete();
+        }
+    }
 
     public AndroidDriver initializeDriver(String deviceName, String udid, String appPackage, String appActivity) {
         try {
+            intializeTest();
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("platformName", "Android");
             capabilities.setCapability("deviceName", deviceName);
@@ -27,7 +41,6 @@ public class DriverManager {
             capabilities.setCapability("appPackage", appPackage);
             capabilities.setCapability("appActivity", appActivity);
             capabilities.setCapability("automationName", "UiAutomator2");
-
             System.out.println("Iniciando o AndroidDriver...");
             mobileDriver = new AndroidDriver(new URL("http://127.0.0.1:4723/"), capabilities);
             mobileDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));

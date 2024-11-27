@@ -1,4 +1,4 @@
-package org.page;
+package org.pageWeb;
 
 /**
  * Hello world!

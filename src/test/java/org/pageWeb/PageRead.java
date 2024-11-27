@@ -1,6 +1,6 @@
-package org.page;
+package org.pageWeb;
 
-import org.attributes.AttributesRead;
+import org.attributesWeb.AttributesRead;
 import org.actions.Actions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;

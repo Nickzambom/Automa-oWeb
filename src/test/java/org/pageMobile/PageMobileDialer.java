@@ -1,8 +1,8 @@
-package org.page;
+package org.pageMobile;
 
 import io.appium.java_client.AppiumDriver;
 import org.actions.ActionsMobile;
-import org.attributes.AttributesMobileDialer;
+import org.attributesMobile.AttributesMobileDialer;
 import org.openqa.selenium.support.PageFactory;
 
 public class PageMobileDialer extends AttributesMobileDialer implements ActionsMobile {

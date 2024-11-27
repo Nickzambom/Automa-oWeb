@@ -1,4 +1,4 @@
-package org.attributes;
+package org.attributesMobile;
 
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
@@ -17,5 +17,6 @@ public class AttributesMobileDialer {
     // Exemplo de elemento mapeado
     @FindBy(xpath = "//android.widget.ImageButton[@content-desc=\"Teclado\"]")
     public WebElement dialPadButton;
+
 
 }
